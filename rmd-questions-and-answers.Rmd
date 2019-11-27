@@ -1,0 +1,64 @@
+---
+title: "Title"
+author: "Author"
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    code_download: true
+    code_folding: show
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, results=FALSE}
+# Knit the doc with this option set to TRUE for answers document
+# and to FALSE for the questions document
+knitr::opts_chunk$set(include = FALSE) 
+def.chunk.hook <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(
+  chunk = function(x, options) {
+    x <- def.chunk.hook(x, options)
+    ifelse(
+      options$size != "normalsize",
+      paste0("\n \\", options$size, "\n\n", x, "\n\n \\normalsize \n"),
+      x
+    )
+  }
+)
+library(tidyverse)
+```
+
+This example R Markdown document demonstrates how to include questions and answers in the same Rmd document.
+
+I have designed the question sheet to be compiled as the `pdf_document` output. Remember to set `knitr::opts_chunk$set(include = FALSE)` in the setup chunk when rendering the questions.
+
+I prefer to render the answers as the `html_document` output but any output format could be used. Remember to set `knitr::opts_chunk$set(include = TRUE)` in the setup chunk for the answer document.
+
+# Question 1
+Question text, possibly including $\LaTeX$ maths and code chunks. The code chunks will require the chunk option `include=TRUE`, i.e.
+
+    ```{r,£ include=TRUE}`r ''`
+    ...code...
+    ```
+
+Paragraph text for answers go in `asis` code chunks, i.e. syntax of the form
+
+    ```{asis}`r ''`
+    ...Text...
+    ```
+
+```{asis}
+Paragraph text for answers.
+```
+
+And R code chunks are included as normal, i.e. chunks of the form
+
+    ```{r}`r ''`
+    ...code...
+    ```
+
+# Question 2 etc.
