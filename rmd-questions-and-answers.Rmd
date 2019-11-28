@@ -41,7 +41,7 @@ I prefer to render the answers as the `html_document` output but any output form
 # Question 1
 Question text, possibly including $\LaTeX$ maths and code chunks. The code chunks will require the chunk option `include=TRUE`, i.e.
 
-    ```{r,£ include=TRUE}`r ''`
+    ```{r, include=TRUE}`r ''`
     ...code...
     ```
 
