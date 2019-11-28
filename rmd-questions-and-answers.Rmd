@@ -42,7 +42,9 @@ I have designed the question sheet to be compiled as the `pdf_document` output.
 
 When rendering your question document set `knitr::opts_chunk$set(include = FALSE)` in the setup chunk.
 
-Paragraph text for questions is standard R Markdown, which can include $\LaTeX$ maths and code chunks. The code chunks in questions require the chunk option `include=TRUE`, i.e.
+Paragraph text for questions is standard R Markdown, which can include $\LaTeX$ maths and code chunks. 
+
+R code chunks in questions for which you want to see the code or output or both require the chunk option `include=TRUE`, i.e.
 
 ````
 ```{r, include=TRUE}`r ''`
@@ -52,7 +54,7 @@ Paragraph text for questions is standard R Markdown, which can include $\LaTeX$ 
 
 # Answers
 
-I prefer to render the answers as the `html_document` output but any output format could be used. 
+I prefer to render the answers document as the `html_document` output but any output format could be used. 
 
 When rendering your answers document set `knitr::opts_chunk$set(include = TRUE)` in the setup chunk.
 
@@ -72,11 +74,11 @@ R code chunks for answers are included as normal, i.e.
 
 ````
 ```{r}`r ''`
-...code...
+...Code for answer...
 ```
 ````
 
-You can use your preferred markdown syntax for laying out your questions. I often use simple section headers, e.g.
+You can use your preferred R Markdown syntax for laying out your questions. I often use simple section headers, e.g.
 ```
 # Question 1
 ```
