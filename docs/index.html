@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Author" />
+<meta name="author" content="Tom Palmer" />
 
-<meta name="date" content="2019-11-27" />
+<meta name="date" content="2019-11-28" />
 
 <title>Title</title>
 
@@ -1482,6 +1481,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1606,35 +1606,43 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Title</h1>
-<h4 class="author">Author</h4>
-<h4 class="date">2019-11-27</h4>
+<h4 class="author">Tom Palmer</h4>
+<h4 class="date">2019-11-28</h4>
 
 </div>
 
 
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p>This example R Markdown document demonstrates how to include questions and answers in the same Rmd document.</p>
-<p>I have designed the question sheet to be compiled as the <code>pdf_document</code> output. Remember to set <code>knitr::opts_chunk$set(include = FALSE)</code> in the setup chunk when rendering the questions.</p>
-<p>I prefer to render the answers as the <code>html_document</code> output but any output format could be used. Remember to set <code>knitr::opts_chunk$set(include = TRUE)</code> in the setup chunk for the answer document.</p>
-<div id="question-1" class="section level1">
-<h1>Question 1</h1>
-<p>Question text, possibly including <span class="math inline">\(\LaTeX\)</span> maths and code chunks. The code chunks will require the chunk option <code>include=TRUE</code>, i.e.</p>
-<pre><code>```{r,£ include=TRUE}
+</div>
+<div id="questions" class="section level1">
+<h1>Questions</h1>
+<p>I have designed the question sheet to be compiled as the <code>pdf_document</code> output.</p>
+<p>When rendering your question document set <code>knitr::opts_chunk$set(include = FALSE)</code> in the setup chunk.</p>
+<p>Paragraph text for questions is standard R Markdown, which can include <span class="math inline">\(\LaTeX\)</span> maths and code chunks. The code chunks in questions require the chunk option <code>include=TRUE</code>, i.e.</p>
+<pre><code>```{r, include=TRUE}
 ...code...
 ```</code></pre>
-<p>Paragraph text for answers go in <code>asis</code> code chunks, i.e. syntax of the form</p>
+</div>
+<div id="answers" class="section level1">
+<h1>Answers</h1>
+<p>I prefer to render the answers as the <code>html_document</code> output but any output format could be used.</p>
+<p>When rendering your answers document set <code>knitr::opts_chunk$set(include = TRUE)</code> in the setup chunk.</p>
+<p>Paragraph text for answers go in <code>asis</code> code chunks, i.e.</p>
 <pre><code>```{asis}
-...Text...
+...Text explaining the answer ...
 ```</code></pre>
-<p>And R code chunks are included as normal, i.e. chunks of the form</p>
+<p>R code chunks for answers are included as normal, i.e.</p>
 <pre><code>```{r}
 ...code...
 ```</code></pre>
-</div>
-<div id="question-2-etc." class="section level1">
-<h1>Question 2 etc.</h1>
+<p>You can use your preferred markdown syntax for laying out your questions. I often use simple section headers, e.g.</p>
+<pre><code># Question 1</code></pre>
+<p>For numbered sections add the option <code>number_sections: true</code> to the output in the YAML header.</p>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRpdGxlIg0KYXV0aG9yOiAiQXV0aG9yIg0KZGF0ZTogJ2ByIFN5cy5EYXRlKClgJw0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIHRvYzogdHJ1ZQ0KICAgIHRvY19mbG9hdDoNCiAgICAgIGNvbGxhcHNlZDogZmFsc2UNCiAgICAgIHNtb290aF9zY3JvbGw6IGZhbHNlDQogICAgdG9jX2RlcHRoOiAyDQogICAgY29kZV9kb3dubG9hZDogdHJ1ZQ0KICAgIGNvZGVfZm9sZGluZzogc2hvdw0KICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRSwgd2FybmluZz1GQUxTRSwgcmVzdWx0cz1GQUxTRX0NCiMgS25pdCB0aGUgZG9jIHdpdGggdGhpcyBvcHRpb24gc2V0IHRvIFRSVUUgZm9yIGFuc3dlcnMgZG9jdW1lbnQNCiMgYW5kIHRvIEZBTFNFIGZvciB0aGUgcXVlc3Rpb25zIGRvY3VtZW50DQprbml0cjo6b3B0c19jaHVuayRzZXQoaW5jbHVkZSA9IEZBTFNFKSANCmRlZi5jaHVuay5ob29rIDwtIGtuaXRyOjprbml0X2hvb2tzJGdldCgiY2h1bmsiKQ0Ka25pdHI6OmtuaXRfaG9va3Mkc2V0KA0KICBjaHVuayA9IGZ1bmN0aW9uKHgsIG9wdGlvbnMpIHsNCiAgICB4IDwtIGRlZi5jaHVuay5ob29rKHgsIG9wdGlvbnMpDQogICAgaWZlbHNlKA0KICAgICAgb3B0aW9ucyRzaXplICE9ICJub3JtYWxzaXplIiwNCiAgICAgIHBhc3RlMCgiXG4gXFwiLCBvcHRpb25zJHNpemUsICJcblxuIiwgeCwgIlxuXG4gXFxub3JtYWxzaXplIFxuIiksDQogICAgICB4DQogICAgKQ0KICB9DQopDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KDQpUaGlzIGV4YW1wbGUgUiBNYXJrZG93biBkb2N1bWVudCBkZW1vbnN0cmF0ZXMgaG93IHRvIGluY2x1ZGUgcXVlc3Rpb25zIGFuZCBhbnN3ZXJzIGluIHRoZSBzYW1lIFJtZCBkb2N1bWVudC4NCg0KSSBoYXZlIGRlc2lnbmVkIHRoZSBxdWVzdGlvbiBzaGVldCB0byBiZSBjb21waWxlZCBhcyB0aGUgYHBkZl9kb2N1bWVudGAgb3V0cHV0LiBSZW1lbWJlciB0byBzZXQgYGtuaXRyOjpvcHRzX2NodW5rJHNldChpbmNsdWRlID0gRkFMU0UpYCBpbiB0aGUgc2V0dXAgY2h1bmsgd2hlbiByZW5kZXJpbmcgdGhlIHF1ZXN0aW9ucy4NCg0KSSBwcmVmZXIgdG8gcmVuZGVyIHRoZSBhbnN3ZXJzIGFzIHRoZSBgaHRtbF9kb2N1bWVudGAgb3V0cHV0IGJ1dCBhbnkgb3V0cHV0IGZvcm1hdCBjb3VsZCBiZSB1c2VkLiBSZW1lbWJlciB0byBzZXQgYGtuaXRyOjpvcHRzX2NodW5rJHNldChpbmNsdWRlID0gVFJVRSlgIGluIHRoZSBzZXR1cCBjaHVuayBmb3IgdGhlIGFuc3dlciBkb2N1bWVudC4NCg0KIyBRdWVzdGlvbiAxDQpRdWVzdGlvbiB0ZXh0LCBwb3NzaWJseSBpbmNsdWRpbmcgJFxMYVRlWCQgbWF0aHMgYW5kIGNvZGUgY2h1bmtzLiBUaGUgY29kZSBjaHVua3Mgd2lsbCByZXF1aXJlIHRoZSBjaHVuayBvcHRpb24gYGluY2x1ZGU9VFJVRWAsIGkuZS4NCg0KICAgIGBgYHtyLMKjIGluY2x1ZGU9VFJVRX1gciAnJ2ANCiAgICAuLi5jb2RlLi4uDQogICAgYGBgDQoNClBhcmFncmFwaCB0ZXh0IGZvciBhbnN3ZXJzIGdvIGluIGBhc2lzYCBjb2RlIGNodW5rcywgaS5lLiBzeW50YXggb2YgdGhlIGZvcm0NCg0KICAgIGBgYHthc2lzfWByICcnYA0KICAgIC4uLlRleHQuLi4NCiAgICBgYGANCg0KYGBge2FzaXN9DQpQYXJhZ3JhcGggdGV4dCBmb3IgYW5zd2Vycy4NCmBgYA0KDQpBbmQgUiBjb2RlIGNodW5rcyBhcmUgaW5jbHVkZWQgYXMgbm9ybWFsLCBpLmUuIGNodW5rcyBvZiB0aGUgZm9ybQ0KDQogICAgYGBge3J9YHIgJydgDQogICAgLi4uY29kZS4uLg0KICAgIGBgYA0KDQojIFF1ZXN0aW9uIDIgZXRjLg0K</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGl0bGUiCmF1dGhvcjogIlRvbSBQYWxtZXIiCmRhdGU6ICdgciBTeXMuRGF0ZSgpYCcKb3V0cHV0OgogIGh0bWxfZG9jdW1lbnQ6CiAgICB0b2M6IHRydWUKICAgIHRvY19mbG9hdDoKICAgICAgY29sbGFwc2VkOiBmYWxzZQogICAgICBzbW9vdGhfc2Nyb2xsOiBmYWxzZQogICAgdG9jX2RlcHRoOiAyCiAgICBjb2RlX2Rvd25sb2FkOiB0cnVlCiAgICBjb2RlX2ZvbGRpbmc6IHNob3cKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKLS0tCgpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRSwgd2FybmluZz1GQUxTRSwgcmVzdWx0cz1GQUxTRX0KIyBLbml0IHRoZSBkb2Mgd2l0aCB0aGlzIG9wdGlvbiBzZXQgdG8gVFJVRSBmb3IgYW5zd2VycyBkb2N1bWVudAojIGFuZCB0byBGQUxTRSBmb3IgdGhlIHF1ZXN0aW9ucyBkb2N1bWVudAprbml0cjo6b3B0c19jaHVuayRzZXQoaW5jbHVkZSA9IEZBTFNFKSAKZGVmLmNodW5rLmhvb2sgPC0ga25pdHI6OmtuaXRfaG9va3MkZ2V0KCJjaHVuayIpCmtuaXRyOjprbml0X2hvb2tzJHNldCgKICBjaHVuayA9IGZ1bmN0aW9uKHgsIG9wdGlvbnMpIHsKICAgIHggPC0gZGVmLmNodW5rLmhvb2soeCwgb3B0aW9ucykKICAgIGlmZWxzZSgKICAgICAgb3B0aW9ucyRzaXplICE9ICJub3JtYWxzaXplIiwKICAgICAgcGFzdGUwKCJcbiBcXCIsIG9wdGlvbnMkc2l6ZSwgIlxuXG4iLCB4LCAiXG5cbiBcXG5vcm1hbHNpemUgXG4iKSwKICAgICAgeAogICAgKQogIH0KKQpsaWJyYXJ5KHRpZHl2ZXJzZSkKYGBgCgojIEludHJvZHVjdGlvbgoKVGhpcyBleGFtcGxlIFIgTWFya2Rvd24gZG9jdW1lbnQgZGVtb25zdHJhdGVzIGhvdyB0byBpbmNsdWRlIHF1ZXN0aW9ucyBhbmQgYW5zd2VycyBpbiB0aGUgc2FtZSBSbWQgZG9jdW1lbnQuCgojIFF1ZXN0aW9ucwoKSSBoYXZlIGRlc2lnbmVkIHRoZSBxdWVzdGlvbiBzaGVldCB0byBiZSBjb21waWxlZCBhcyB0aGUgYHBkZl9kb2N1bWVudGAgb3V0cHV0LgoKV2hlbiByZW5kZXJpbmcgeW91ciBxdWVzdGlvbiBkb2N1bWVudCBzZXQgYGtuaXRyOjpvcHRzX2NodW5rJHNldChpbmNsdWRlID0gRkFMU0UpYCBpbiB0aGUgc2V0dXAgY2h1bmsuCgpQYXJhZ3JhcGggdGV4dCBmb3IgcXVlc3Rpb25zIGlzIHN0YW5kYXJkIFIgTWFya2Rvd24sIHdoaWNoIGNhbiBpbmNsdWRlICRcTGFUZVgkIG1hdGhzIGFuZCBjb2RlIGNodW5rcy4gVGhlIGNvZGUgY2h1bmtzIGluIHF1ZXN0aW9ucyByZXF1aXJlIHRoZSBjaHVuayBvcHRpb24gYGluY2x1ZGU9VFJVRWAsIGkuZS4KCmBgYGAKYGBge3IsIGluY2x1ZGU9VFJVRX1gciAnJ2AKLi4uY29kZS4uLgpgYGAKYGBgYAoKIyBBbnN3ZXJzCgpJIHByZWZlciB0byByZW5kZXIgdGhlIGFuc3dlcnMgYXMgdGhlIGBodG1sX2RvY3VtZW50YCBvdXRwdXQgYnV0IGFueSBvdXRwdXQgZm9ybWF0IGNvdWxkIGJlIHVzZWQuIAoKV2hlbiByZW5kZXJpbmcgeW91ciBhbnN3ZXJzIGRvY3VtZW50IHNldCBga25pdHI6Om9wdHNfY2h1bmskc2V0KGluY2x1ZGUgPSBUUlVFKWAgaW4gdGhlIHNldHVwIGNodW5rLgoKUGFyYWdyYXBoIHRleHQgZm9yIGFuc3dlcnMgZ28gaW4gYGFzaXNgIGNvZGUgY2h1bmtzLCBpLmUuCgpgYGBgCmBgYHthc2lzfWByICcnYAouLi5UZXh0IGV4cGxhaW5pbmcgdGhlIGFuc3dlciAuLi4KYGBgCmBgYGAKCmBgYHthc2lzfQpQYXJhZ3JhcGggdGV4dCBmb3IgYW5zd2Vycy4KYGBgCgpSIGNvZGUgY2h1bmtzIGZvciBhbnN3ZXJzIGFyZSBpbmNsdWRlZCBhcyBub3JtYWwsIGkuZS4KCmBgYGAKYGBge3J9YHIgJydgCi4uLmNvZGUuLi4KYGBgCmBgYGAKCllvdSBjYW4gdXNlIHlvdXIgcHJlZmVycmVkIG1hcmtkb3duIHN5bnRheCBmb3IgbGF5aW5nIG91dCB5b3VyIHF1ZXN0aW9ucy4gSSBvZnRlbiB1c2Ugc2ltcGxlIHNlY3Rpb24gaGVhZGVycywgZS5nLgpgYGAKIyBRdWVzdGlvbiAxCmBgYAoKRm9yIG51bWJlcmVkIHNlY3Rpb25zIGFkZCB0aGUgb3B0aW9uIGBudW1iZXJfc2VjdGlvbnM6IHRydWVgIHRvIHRoZSBvdXRwdXQgaW4gdGhlIFlBTUwgaGVhZGVyLgo=</div>
 
 
 </div>
