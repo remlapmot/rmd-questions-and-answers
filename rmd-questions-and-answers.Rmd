@@ -11,6 +11,7 @@ output:
     toc_depth: 2
     code_download: true
     code_folding: show
+    output_dir: docs
   pdf_document: default
 ---
 
