@@ -2,6 +2,8 @@
 title: "Generating questions and solutions documents from the same R Markdown document"
 author: "Tom Palmer"
 date: '`r Sys.Date()`'
+params:
+  solutions: TRUE
 output:
   html_document:
     toc: true
@@ -15,14 +17,14 @@ output:
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, results=FALSE}
-# When doc knitted to html default is to include chunks
-# don't include when latex output
-if (knitr::is_html_output()) {
-  includechunks <- TRUE
-} else { # could use knitr::is_latex_output() here
-  includechunks <- FALSE
-}
-knitr::opts_chunk$set(include = includechunks)
+# # When doc knitted to html default is to include chunks
+# # don't include when latex output
+# if (knitr::is_html_output()) {
+#   includechunks <- TRUE
+# } else { # could use knitr::is_latex_output() here
+#   includechunks <- FALSE
+# }
+knitr::opts_chunk$set(include = params$solutions)
 
 def.chunk.hook <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(
@@ -42,9 +44,10 @@ library(tidyverse)
 
 - This example R Markdown document demonstrates how to include questions and answers in the same Rmd document.
 
-# Questions
+- When rendering the questions, in the YAML header set `solutions: FALSE`
+- When rendering the solutions, in the YAML header set `solutions: TRUE`
 
-- I have designed the question sheet to be compiled as the `pdf_document` output.
+# Questions
 
 - To generate pdf output you need the TinyTeX package installed, `install.packages('tinytex')`.
 
