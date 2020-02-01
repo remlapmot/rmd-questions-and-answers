@@ -60,6 +60,7 @@ library(tidyverse)
 
 - When rendering the questions, in the YAML header set `solutions: FALSE`
 - When rendering the solutions, in the YAML header set `solutions: TRUE`
+- If rendering using the knit button the output filename will end `-solutions.extension` due to the custom knit function which I modified from Yihui Xie's advice [here](https://bookdown.org/yihui/rmarkdown-cookbook/custom-knit.html).
 
 # Questions
 
