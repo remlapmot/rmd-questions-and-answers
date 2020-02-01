@@ -102,3 +102,9 @@ library(tidyverse)
   ```
 
 - For numbered sections add the option `number_sections: true` to the output in the YAML header.
+
+## Example R code chunk
+
+```{r}
+curve(x^2)
+```
