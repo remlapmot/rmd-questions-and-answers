@@ -14,6 +14,20 @@ output:
     code_download: true
     code_folding: show
   pdf_document: default
+knit: (
+  function(inputFile, encoding) { 
+    if (rmarkdown::yaml_front_matter(inputFile)$params$solutions) {
+      rmarkdown::render( 
+        input       = inputFile, 
+        encoding    = encoding, 
+        output_file = paste0(xfun::sans_ext(inputFile), '-solutions'))
+    }
+    else {
+      rmarkdown::render( 
+        input       = inputFile, 
+        encoding    = encoding)
+    }
+  })
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, results=FALSE}
