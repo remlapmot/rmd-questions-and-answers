@@ -108,3 +108,5 @@ library(tidyverse)
 ```{r}
 curve(x^2)
 ```
+
+`r if (knitr::is_html_output()) 'You can see this in the html solutions [here](./rmd-questions-and-answers-solutions.html)'`
