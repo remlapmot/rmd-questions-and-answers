@@ -77,8 +77,6 @@ library(tidyverse)
 
 # Solutions
 
-- I have chosen to render the solutions as the `html_document` output but any output format could be used.
-
 - Paragraph text for solutions go in `asis` code chunks, i.e.
   ````
   ```{asis}`r ''`
