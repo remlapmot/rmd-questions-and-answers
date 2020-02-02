@@ -38,7 +38,8 @@ knit: (
 # } else { # could use knitr::is_latex_output() here
 #   includechunks <- FALSE
 # }
-# knitr::opts_chunk$set(include = params$solutions)
+knitr::opts_chunk$set(include = params$solutions)
+
 def.chunk.hook <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(
   chunk = function(x, options) {
