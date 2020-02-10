@@ -1,0 +1,13 @@
+---
+title: Example R Markdown document containing questions and solutions
+output: github_document
+---
+
+## Dependency
+
+```{r, results=FALSE, message=FALSE, warning=FALSE}
+remotes::install_github("remlapmot/knitexercise")
+```
+
+## Example R Markdown file
+See the [`rmd-questions-and-answers.Rmd`](./blob/master/rmd-questions-answers.Rmd) file for comments.
