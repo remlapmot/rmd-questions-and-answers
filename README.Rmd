@@ -5,7 +5,7 @@ output: github_document
 
 ## Dependency
 
-```{r}
+```{r, results=FALSE, message=FALSE, warning=FALSE}
 remotes::install_github("remlapmot/knitexercise")
 ```
 
