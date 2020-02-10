@@ -9,5 +9,6 @@ remotes::install_github("remlapmot/knitexercise")
 
 ## Example R Markdown file
 
-See the [`rmd-questions-and-answers.Rmd`](./rmd-questions-answers.Rmd)
-file for comments.
+See the
+[`rmd-questions-and-answers.Rmd`](./rmd-questions-and-answers.Rmd) file
+for comments.
